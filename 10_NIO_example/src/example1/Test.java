@@ -1,5 +1,7 @@
 package example1;
 
+import java.nio.file.Files;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -9,6 +11,9 @@ public class Test {
 		
 		
 		 System.out.println(newStr.replaceAll("[^a-zA-Z ]", ""));
+		 
+
+		 
 	}
 	
 	
