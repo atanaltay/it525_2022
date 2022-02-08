@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
-public class LoginFrame extends JFrame {
+public class LoginFrameV1 extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
@@ -35,7 +35,7 @@ public class LoginFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginFrame frame = new LoginFrame();
+					LoginFrameV1 frame = new LoginFrameV1();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class LoginFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginFrame() {
+	public LoginFrameV1() {
 		initGUI();
 	}
 	private void initGUI() {
