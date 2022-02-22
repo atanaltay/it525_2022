@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+	<h2>Calculator Result</h2>
+
+
+
+<h:panelGrid columns="2">
+
+	<h:outputLabel value="Number 1:" />
+	<h:outputText value="#{calculatorBean.num1}" />
+
+	<h:outputLabel value="Number 2:"/>
+	<h:outputText value="#{calculatorBean.num2}" />
+
+	<h:outputLabel value="Result:"/>
+	<h:outputText value="#{calculatorBean.sum}" />
+	
+
+
+</h:panelGrid>
+
+
+
+</body> 
+</html>

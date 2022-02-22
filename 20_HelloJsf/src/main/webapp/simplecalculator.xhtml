@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h2>Simple Calculator</h2>
+
+<h:form>
+
+<h:panelGrid columns="2">
+
+	<h:outputLabel value="Number 1:" for="num1"/>
+	<h:inputText id="num1" value="#{calculatorBean.num1}" />
+
+	<h:outputLabel value="Number 2:" for="num2"/>
+	<h:inputText id="num2" value="#{calculatorBean.num2}" />
+
+
+	<h:outputText />
+	<h:commandButton action="#{calculatorBean.calculate()}" value="Calculate" />
+
+
+</h:panelGrid>
+
+
+</h:form>
+
+
+</body> 
+</html>
