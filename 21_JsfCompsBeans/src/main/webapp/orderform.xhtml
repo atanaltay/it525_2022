@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body>
+<h:form>
+<h3>Order Form</h3>
+
+
+	Select Product: <h:selectOneMenu value="#{orderBean.selectedProductId}">
+		
+		<f:selectItems value="#{orderBean.products}" 
+		var="prod" itemLabel="#{prod.name}" 
+		itemValue="#{prod.id}"/>
+		
+	
+	</h:selectOneMenu>
+	
+	<br/>
+	
+
+Select Amount:
+	 <h:selectOneListbox value="#{orderBean.amount}">
+	 	<f:selectItem itemValue="1" itemLabel="1"></f:selectItem>
+	 	<f:selectItem itemValue="2" itemLabel="2"></f:selectItem>
+	 	<f:selectItem itemValue="3" itemLabel="3"></f:selectItem>
+	 	<f:selectItem itemValue="4" itemLabel="4"></f:selectItem>
+	 	<f:selectItem itemValue="5" itemLabel="5"></f:selectItem>
+	 
+	 </h:selectOneListbox>
+	
+	<br/>
+	
+	<h:commandButton action="#{orderBean.calculate()}" value="Calculate" />
+
+<br/>
+<br/>
+
+Selected Product:<h:outputText value="#{orderBean.selectedProduct.name}" rendered="#{someBEan.count eq 100}"/>
+
+Total:
+<h:outputText value="#{orderBean.total}" rendered="#{not empty orderBean.selectedProduct}"/>
+
+</h:form> 
+</body> 
+</html>

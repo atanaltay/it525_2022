@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+	<h:outputScript library="js" name="script.js"></h:outputScript>
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+
+</h:head>
+<body>
+	<button onclick="test()">Click me</button>
+
+	<h1 class="redHeader">Home</h1>
+
+	<h2 class="blueHeader">Director's messaage</h2>
+	<p>#{homeBean.dirMessage}</p>
+	<p>
+		<h:outputText value="#{homeBean.dirMessage}"
+			rendered="#{homeBean.dirMsgEnabled}" />
+	</p>
+
+
+	<!-- Below renders a DIV element -->
+	<h:panelGroup style="background:blue" layout="block"
+		rendered="#{not empty homeBean.serverMessage}">
+		<h3>Server message</h3>
+		<h3>
+			<h:outputText value="#{homeBean.serverMessage}" />
+		</h3>
+
+
+	</h:panelGroup>
+	<h:form>
+
+		<h:commandButton action="#{homeBean.processBoxCall()}"
+			value="Set Visibility" />
+	</h:form>
+
+	<ul>
+		<ui:repeat var="name" value="#{homeBean.names}">
+
+			<li>#{name}</li>
+
+		</ui:repeat>
+	</ul>
+
+	<h3>Products</h3>
+
+	<table>
+		<ui:repeat var="prod" value="#{homeBean.products}">
+
+
+			<tr>
+				<td>#{prod.id}</td>
+				<td>#{prod.name}</td>
+				<td>#{prod.price}</td>
+
+			</tr>
+
+
+		</ui:repeat>
+	</table>
+
+		<h3>Products</h3>
+
+		<h:dataTable value="#{homeBean.products}" var="prod">
+
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{prod.id}" />
+			</h:column>
+
+		
+			<h:column>
+				<f:facet name="header">Price</f:facet>
+				<h:outputText value="#{prod.price}" />
+			</h:column>
+				<h:column>	<h:column>
+				<f:facet name="header">Name</f:facet>
+				<h:outputText value="#{prod.name}" />
+			</h:column>
+			
+				<f:facet name="header">Name</f:facet>
+				<h:outputText value="#{prod.name}" />
+			</h:column>
+			
+		</h:dataTable>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
