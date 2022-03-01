@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+	<h2>New Contact</h2>
+	
+	<h:form>
+		
+		<h:panelGrid columns="3">
+			
+			<h:outputLabel value="Name:" />
+			<h:inputText id="name" value="#{newContact.newPerson.name}" required="true" requiredMessage="Required!"/>
+			<h:message for="name"/>
+		
+			<h:outputLabel value="Last Name:" />
+			<h:inputText id="lstname" value="#{newContact.newPerson.lastname}" required="true" requiredMessage="Required!"/>
+			<h:message for="lstname"/>
+			
+			<h:outputLabel value="City:" />
+			<h:inputText id="city" value="#{newContact.newPerson.city}" required="true" requiredMessage="Required!"/>
+			<h:message for="city"/>
+			
+			<h:outputLabel value="Work Phone:" />
+			<h:inputText id="phone" value="#{newContact.newPerson.workphone}" required="true" requiredMessage="Required!"/>
+			<h:message for="phone"/>
+			
+			<h:outputLabel value="Birth Date:" />
+			<h:inputText id="birth" value="#{newContact.newPerson.birthdate}" required="true" requiredMessage="Required!"/>
+			<h:message for="birth"/>
+			
+			<h:outputLabel value="Category:" />
+			<h:selectOneMenu value="#{newContact.newPerson.categry_id}">
+				<f:selectItems value="#{newContact.categories}" var="cat" itemLabel="#{cat.name}" itemValue="#{cat.id}"/>
+			
+			</h:selectOneMenu>
+		
+		
+			<h:outputText value="" />
+			<h:commandButton  action="#{newContact.savePerson()}" value="Save" />
+			
+		</h:panelGrid>
+	
+	
+	
+	</h:form>
+	
+	
+	
+</h:body> 
+</html>

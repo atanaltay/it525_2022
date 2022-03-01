@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<h:body>
+	<div>
+
+		<h2>Contacts App</h2>
+		<hr />
+
+		<div style="position: relative; float: left; padding: 20px;">
+			<h3>Categories</h3>
+
+			<h:link outcome="categorycontacts" value="All">
+				<f:param name="catid" value=""></f:param>
+
+			</h:link>
+			<br />
+			<ui:repeat var="cat" value="#{contactsByCategory.categories}">
+
+				<h:link outcome="categorycontacts" value="#{cat.name}">
+					<f:param name="catid" value="#{cat.id}"></f:param>
+				</h:link>
+
+				<br />
+
+
+			</ui:repeat>
+
+		</div>
+		<div style="position: relative; float: left; padding: 20px;">
+
+			<h3>Contacts</h3>
+
+			<h:form>
+
+				<h:dataTable value="#{contactsByCategory.people}" var="person">
+
+					<h:column>
+
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{person.id}" />
+
+					</h:column>
+
+					<h:column>
+
+						<f:facet name="header">Name</f:facet>
+						<h:outputText value="#{person.name}" />
+
+					</h:column>
+
+
+					<h:column>
+
+						<f:facet name="header">Last Name</f:facet>
+						<h:outputText value="#{person.lastname}" />
+
+					</h:column>
+
+					<h:column>
+
+						<f:facet name="header">City</f:facet>
+						<h:outputText value="#{person.city}" />
+
+					</h:column>
+
+					<h:column>
+
+						<f:facet name="header">Work Phone</f:facet>
+						<h:outputText value="#{person.workphone}" />
+
+					</h:column>
+
+
+					<h:column>
+
+						<f:facet name="header">Action</f:facet>
+						<h:commandLink action="#{contactsByCategory.deletePerson(person.id)}"
+							value="Delete" immediate="true">
+							<f:param name="catid" value="#{param.catid}"></f:param>	
+							
+						</h:commandLink>
+
+					</h:column>
+
+				</h:dataTable>
+
+				<h4>New Contact</h4>
+				<h:panelGrid columns="3">
+			
+			<h:outputLabel value="Name:" />
+			<h:inputText id="name" value="#{contactsByCategory.newPerson.name}" required="true" requiredMessage="Required!"/>
+			<h:message for="name"/>
+		
+			<h:outputLabel value="Last Name:" />
+			<h:inputText id="lstname" value="#{contactsByCategory.newPerson.lastname}" required="true" requiredMessage="Required!"/>
+			<h:message for="lstname"/>
+			
+			<h:outputLabel value="City:" />
+			<h:inputText id="city" value="#{contactsByCategory.newPerson.city}" required="true" requiredMessage="Required!"/>
+			<h:message for="city"/>
+			
+			<h:outputLabel value="Work Phone:" />
+			<h:inputText id="phone" value="#{contactsByCategory.newPerson.workphone}" required="true" requiredMessage="Required!"/>
+			<h:message for="phone"/>
+			
+			<h:outputLabel value="Birth Date:" />
+			<h:inputText id="birth" value="#{contactsByCategory.newPerson.birthdate}" required="true" requiredMessage="Required!"/>
+			<h:message for="birth"/>
+			
+			<h:outputLabel value="Category:" />
+			<h:selectOneMenu value="#{contactsByCategory.newPerson.categry_id}">
+				<f:selectItems value="#{contactsByCategory.categories}" var="cat" itemLabel="#{cat.name}" itemValue="#{cat.id}"/>
+			
+			</h:selectOneMenu>
+		
+		
+			<h:outputText value="" />
+			<h:commandButton  action="#{contactsByCategory.savePerson()}" value="Save" >
+				<f:param name="catid" value="#{param.catid}"></f:param>
+			</h:commandButton>
+			
+		</h:panelGrid>
+
+
+			</h:form>
+		</div>
+
+
+	</div>
+
+
+</h:body>
+</html>

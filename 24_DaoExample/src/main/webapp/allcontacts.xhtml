@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<h:body> 
+	<h2>All Contacts</h2>
+	<h:link outcome="newcontact" value="New Contact"/>
+<!-- list contacts -->
+<h:form>
+
+<h:dataTable value="#{allContacts.people}" var="person">
+
+	<h:column>
+	
+		<f:facet name="header">ID</f:facet>
+		<h:outputText value="#{person.id}" />
+	
+	</h:column>
+
+	<h:column>
+	
+		<f:facet name="header">Name</f:facet>
+		<h:outputText value="#{person.name}" />
+	
+	</h:column>
+	
+	
+	<h:column>
+	
+		<f:facet name="header">Last Name</f:facet>
+		<h:outputText value="#{person.lastname}" />
+	
+	</h:column>
+	
+	<h:column>
+	
+		<f:facet name="header">City</f:facet>
+		<h:outputText value="#{person.city}" />
+	
+	</h:column>
+	
+	<h:column>
+	
+		<f:facet name="header">Work Phone</f:facet>
+		<h:outputText value="#{person.workphone}" />
+	
+	</h:column>
+	
+	
+	<h:column>
+	
+		<f:facet name="header">Action</f:facet>
+		<h:commandLink action="#{allContacts.deletePerson(person.id)}" value="Delete" />
+	
+	</h:column>
+
+</h:dataTable>
+
+</h:form>
+
+</h:body> 
+</html>
