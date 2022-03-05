@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition template="/template.xhtml">
+		<ui:define name="body">
+			
+			<h:panelGroup rendered="#{userBean.loggedin}"> 
+				<ui:insert name="securecontent"/>
+			
+			</h:panelGroup>
+		
+		
+			<h:panelGroup rendered="#{not userBean.loggedin}">
+				
+				<p>Please <h:link outcome="login" value="login"/> </p>
+			
+			</h:panelGroup>
+		
+		
+		
+		
+		</ui:define>
+	
+	
+	
+	
+	</ui:composition>
+</html>

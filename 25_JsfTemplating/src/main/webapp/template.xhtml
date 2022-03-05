@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<h:body>
+
+
+	<div style="border-bottom: 1px solid;">
+		<h1>Cloud Contacts</h1>
+		<h5><h:outputText value="Welcome #{userBean.username}" rendered="#{userBean.loggedin}" /></h5>
+	</div>
+	<div style="border-bottom: 1px solid;">
+		<h:link outcome="home" value="Home"/>| 
+		<h:link outcome="contacts" value="Contacts"/> | 
+		<h:link outcome="orders" value="Orders"/> | 
+		<h:link outcome="login" value="Login" rendered="#{not userBean.loggedin}"/>
+		<h:form>
+			<h:commandLink action="#{userBean.logout()}" value="Logout" rendered="#{userBean.loggedin}" />
+		</h:form>
+		
+	</div>
+	<div style="border-bottom: 1px solid;">
+		<!-- Content area -->
+		<ui:insert name="body"/>
+	</div>
+	<div>@Copyright 2022</div>
+
+
+</h:body>
+</html>
