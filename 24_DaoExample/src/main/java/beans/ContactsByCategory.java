@@ -57,10 +57,11 @@ public class ContactsByCategory {
 	}
 	
 	public String savePerson() {
-		
+		//Page is forwarded
 		personDao.save(newPerson);
-		refreshData();
-		return null;
+		//refreshdata is removed as the page is redirected to itself
+		//refreshData();
+		return "categorycontacts?faces-redirect=true";
 	}
 	
 	
